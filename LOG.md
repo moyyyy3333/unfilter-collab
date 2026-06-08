@@ -44,3 +44,6 @@ Eval done: 18 images, engine=pilgram-demo
 
 ## 2026-06-07 20:27
 Eval done: 30 images, engine=CAIR-S
+
+## 2026-06-08 08:31
+Eval done: 18 images, engine=pilgram-demo
