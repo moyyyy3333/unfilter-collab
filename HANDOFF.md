@@ -1,12 +1,12 @@
 # Unfilter — Handoff
 
-Updated: 2026-06-08 09:33
+Updated: 2026-06-08 09:37
 
 ## Current state
 - Eval run complete
-- Engine: pilgram-demo
-- Images processed: 18 succeeded, 0 failed
-- Avg inference time: 0.00s/image
+- Engine: CAIR-S
+- Images processed: 30 succeeded, 0 failed
+- Avg inference time: 5.08s/image
 - Gallery: /Users/mymac/unfilter-eval/results/gallery.html
 
 ## Open question for Claude
