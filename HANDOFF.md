@@ -93,14 +93,9 @@ Latest entries (full log in HF Space repo):
 ```
 
 ## What Hermes was doing
-- Fixed scanner bug: pass-through was re-encoding at JPEG quality 95 instead of returning verbatim bytes
-- Regenerated gallery with proper per-card labels (21 MATRIX / 11 PASS-THROUGH)
-- Ran 150-image classifier sanity test — flagged but probably a simulation artifact
-- User asked for Phase 3 (matrix improvement) — blocked at Gate 2
+- **PHASE 3 (Jun 13):** Matrix improvement loop. All 7 targets failed all 4 methods (balanced lstsq, +ridge, +RPCC, +PCHIP LUT). STOP triggered — zero improvement 3 iterations running. v4 deployed (same 5 matrices). CHANGELOG + matrices_v4.json pushed to HF Space.
 
 ## What Claude should know
 - **Do NOT refit the 5 Iteration A matrices** — they're frozen
-- **Do NOT modify the classifier** without user direction
-- **Do NOT touch unfilter-v2, unfilter-app projects** or their Vercel deployments
-- Rollout plan file in iOS project: the UI calls `/scan` and displays the restored base64
-- The scanner never uses PIL passthrough function for matrix — it's affine math on numpy arrays
+- **10 remaining filters are fundamentally NOT color-recoverable** by any per-pixel model (spatial, B&W, extreme chroma shifts)
+- **v4 gallery at https://unfilter-eval-v4.vercel.app** — header: "21 matrix / 0 RPCC / 0 LUT / 11 pass-through / 0 not-recoverable"
