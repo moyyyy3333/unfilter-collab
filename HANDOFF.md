@@ -93,9 +93,12 @@ Latest entries (full log in HF Space repo):
 ```
 
 ## What Hermes was doing
-- **PHASE 3 (Jun 13):** Matrix improvement loop. All 7 targets failed all 4 methods (balanced lstsq, +ridge, +RPCC, +PCHIP LUT). STOP triggered — zero improvement 3 iterations running. v4 deployed (same 5 matrices). CHANGELOG + matrices_v4.json pushed to HF Space.
+- **REAL-PAIR FIT (Jun 13):** Fitted 6 matrices from REAL Instagram app (clean, filtered) pairs — ~/defilterx-train/data/. 200 pairs/filter, plain lstsq 4×3. 5/6 pass MAE<8 on held-out real pairs. Görsel: https://unfilter-eval-real.vercel.app. ROOT CAUSE FOUND: prior matrices were fitted on PIL simulations (not real Instagram filters), so they couldn't remove real filters despite passing all synthetic metrics.
 
 ## What Claude should know
-- **Do NOT refit the 5 Iteration A matrices** — they're frozen
-- **10 remaining filters are fundamentally NOT color-recoverable** by any per-pixel model (spatial, B&W, extreme chroma shifts)
-- **v4 gallery at https://unfilter-eval-v4.vercel.app** — header: "21 matrix / 0 RPCC / 0 LUT / 11 pass-through / 0 not-recoverable"
+- **Do NOT refit the 5 old matrices** — delete them, replace with real-pair matrices
+- **6 new real-pair filter classes**: beauty_smooth, clarendon, gingham, juno, lark, valencia
+- **These are Instagram filter names, not our 15 classifier classes** — classifier needs remapping or retraining
+- **Real-pair data at ~/defilterx-train/data/<filter_name>/(filtered|original)/**
+- **v4 gallery** shows the old (broken) matrices — ignore
+- **matrices_real.json** in audit-check repo has the real matrices

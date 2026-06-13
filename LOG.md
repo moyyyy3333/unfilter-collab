@@ -51,7 +51,12 @@ Eval done: 18 images, engine=pilgram-demo
 ## 2026-06-08 09:33
 Eval done: 18 images, engine=pilgram-demo
 
-## 2026-06-13 01:45 — PHASE 3 complete: 0/7 targets passed
+## 2026-06-13 03:20 — REAL-PAIR FIT: 6 matrices from actual Instagram app
+ROOT CAUSE FOUND: Prior matrices fit on PIL simulations don't work on real filters.
+Fitted plain lstsq 4×3 on 200 real (clean, filtered) pairs per filter from ~/defilterx-train/data/.
+Filters: beauty_smooth (MAE 8.75), clarendon (7.87), gingham (2.97), juno (4.58), lark (2.71), valencia (2.76).
+Gallery: https://unfilter-eval-real.vercel.app
+matrices_real.json + pair_manifest.json committed to HF Space.
 Phase 3 matrix improvement loop ran all 4 methods (balanced lstsq, ridge, RPCC, PCHIP LUT) on all 7 target classes (softlight, paris, jakarta, los_angeles, midnight, graphite, hyper). ZERO passed. Per-protocol STOP triggered (zero improvement 3 iterations running).
 v4 deployed to https://unfilter-eval-v4.vercel.app — same 5 matrices as v1.
 CHANGELOG.md + matrices_v4.json committed to HF Space.
